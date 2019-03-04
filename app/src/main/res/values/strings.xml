@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">RGBACalculator</string>
+    <string name="decimal">Decimal</string>
+    <string name="hexadecial">Hexadecial</string>
+    <string name="color_changer">Color Changer</string>
+    <string name="r">R:</string>
+    <string name="g">G:</string>
+    <string name="b">B:</string>
+    <string name="a">A:</string>
 </resources>
