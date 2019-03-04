@@ -8,14 +8,15 @@
         tools:context=".MainActivity">
     <EditText
             android:layout_width="80dp"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             android:inputType="text"
             android:ems="10"
             android:id="@+id/main_editText_1"
             android:hint="255" android:textSize="30sp" android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/main_editText_2" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp" android:layout_marginRight="16dp"/>
+            app:layout_constraintBottom_toTopOf="@+id/main_editText_2"/>
     <EditText
             android:layout_height="64dp"
             android:inputType="text"
@@ -23,18 +24,20 @@
             android:id="@+id/main_editText_2"
             android:hint="255" android:textSize="30sp" android:gravity="center"
             android:layout_width="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
             app:layout_constraintTop_toBottomOf="@+id/main_editText_1"
-            app:layout_constraintBottom_toTopOf="@+id/main_editText_3" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp" android:layout_marginRight="16dp"/>
+            app:layout_constraintBottom_toTopOf="@+id/main_editText_3"/>
     <EditText
             android:layout_width="80dp"
             android:layout_height="64dp"
             android:ems="10"
             android:id="@+id/main_editText_3"
             android:hint="255" android:textSize="30sp" android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginRight="16dp" android:inputType="text"
             app:layout_constraintTop_toBottomOf="@+id/main_editText_2"
-            app:layout_constraintBottom_toTopOf="@+id/main_editText_4" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp" android:layout_marginRight="16dp" android:inputType="text"/>
+            app:layout_constraintBottom_toTopOf="@+id/main_editText_4"/>
     <EditText
             android:layout_width="80dp"
             android:layout_height="64dp"
@@ -42,87 +45,90 @@
             android:ems="10"
             android:hint="255" android:textSize="30sp" android:gravity="center"
             android:id="@+id/main_editText_4"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_editText_3" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp" android:layout_marginRight="16dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/main_editText_3"
+    />
     <SeekBar
             android:layout_width="0dp"
             android:id="@+id/main_seekBar_2"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/main_editText_2" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/main_editText_2"
             app:layout_constraintTop_toTopOf="@+id/main_editText_2"
             app:layout_constraintStart_toEndOf="@+id/main_textView_2" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" android:max="255"/>
+            android:layout_marginStart="8dp" android:max="255" app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintVertical_bias="1.0"/>
     <SeekBar
             android:layout_width="0dp"
             android:id="@+id/main_seekBar_1"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/main_editText_1" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/main_editText_1"
-            app:layout_constraintTop_toTopOf="@+id/main_editText_1"
             app:layout_constraintStart_toEndOf="@+id/main_textView_1" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" android:max="255"/>
+            android:layout_marginStart="8dp" android:max="255"
+            app:layout_constraintBottom_toBottomOf="@+id/main_editText_1"
+            app:layout_constraintTop_toTopOf="@+id/main_editText_1" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"/>
     <SeekBar
             android:layout_width="0dp"
             android:id="@+id/main_seekBar_3"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/main_editText_3" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/main_editText_3"
             app:layout_constraintTop_toTopOf="@+id/main_editText_3"
             app:layout_constraintStart_toEndOf="@+id/main_textView_3" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" android:max="255"/>
+            android:layout_marginStart="8dp" android:max="255" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"/>
     <SeekBar
             android:layout_width="0dp"
             android:id="@+id/main_seekBar_4"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/main_editText_4"
             app:layout_constraintTop_toTopOf="@+id/main_editText_4"
             app:layout_constraintEnd_toStartOf="@+id/main_editText_4" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             app:layout_constraintStart_toEndOf="@+id/main_textView_4" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" android:max="255"/>
+            android:layout_marginStart="8dp" android:max="255" app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintVertical_bias="1.0"/>
     <TextView
             android:text="@string/r"
             android:layout_width="26dp"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             android:id="@+id/main_textView_1"
-            app:layout_constraintBottom_toBottomOf="@+id/main_seekBar_1"
-            app:layout_constraintTop_toTopOf="@+id/main_seekBar_1" android:gravity="center" android:textSize="30sp"
-            app:layout_constraintVertical_bias="0.0"
+            android:gravity="center" android:textSize="30sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_1"
             app:layout_constraintStart_toEndOf="@+id/main_imageView" android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"/>
     <TextView
             android:text="@string/g"
             android:layout_width="wrap_content"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             android:id="@+id/main_textView_2" android:textSize="30sp"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="@+id/main_seekBar_2"
-            app:layout_constraintBottom_toBottomOf="@+id/main_seekBar_2"
-            app:layout_constraintStart_toEndOf="@+id/main_imageView" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"/>
+            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_2"
+            app:layout_constraintStart_toEndOf="@+id/main_imageView" android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"/>
     <TextView
             android:text="@string/b"
             android:layout_width="wrap_content"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             android:id="@+id/main_textView_3" android:textSize="30sp"
             android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="@+id/main_seekBar_3"
-            app:layout_constraintTop_toTopOf="@+id/main_seekBar_3" app:layout_constraintStart_toEndOf="@+id/main_imageView"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"/>
+            app:layout_constraintStart_toEndOf="@+id/main_imageView"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_3"/>
     <TextView
             android:text="@string/a"
             android:layout_width="wrap_content"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             android:id="@+id/main_textView_4" android:textSize="30sp"
             android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="@+id/main_seekBar_4"
-            app:layout_constraintTop_toTopOf="@+id/main_seekBar_4" app:layout_constraintStart_toEndOf="@+id/main_imageView"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"/>
+            app:layout_constraintStart_toEndOf="@+id/main_imageView"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_4"/>
     <ImageView
             android:layout_width="192dp"
             android:layout_height="192dp"
