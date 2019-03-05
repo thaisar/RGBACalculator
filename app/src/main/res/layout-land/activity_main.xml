@@ -51,6 +51,17 @@
     />
     <SeekBar
             android:layout_width="0dp"
+            android:id="@+id/main_seekBar_1"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/main_editText_1" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintStart_toEndOf="@+id/main_textView_1" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:max="255"
+            app:layout_constraintBottom_toBottomOf="@+id/main_editText_1"
+            app:layout_constraintTop_toTopOf="@+id/main_editText_1" app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintVertical_bias="1.0"/>
+    <SeekBar
+            android:layout_width="0dp"
             android:id="@+id/main_seekBar_2"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/main_editText_2" android:layout_marginEnd="8dp"
@@ -62,17 +73,6 @@
             app:layout_constraintVertical_bias="1.0"/>
     <SeekBar
             android:layout_width="0dp"
-            android:id="@+id/main_seekBar_1"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/main_editText_1" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintStart_toEndOf="@+id/main_textView_1" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" android:max="255"
-            app:layout_constraintBottom_toBottomOf="@+id/main_editText_1"
-            app:layout_constraintTop_toTopOf="@+id/main_editText_1" app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="1.0"/>
-    <SeekBar
-            android:layout_width="0dp"
             android:id="@+id/main_seekBar_3"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/main_editText_3" android:layout_marginEnd="8dp"
@@ -80,7 +80,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/main_editText_3"
             app:layout_constraintTop_toTopOf="@+id/main_editText_3"
             app:layout_constraintStart_toEndOf="@+id/main_textView_3" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" android:max="255" app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginStart="8dp" android:max="255" app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintVertical_bias="1.0"/>
     <SeekBar
             android:layout_width="0dp"
@@ -147,7 +147,7 @@
             app:layout_constraintStart_toStartOf="@+id/main_imageView"
             app:layout_constraintEnd_toEndOf="@+id/main_imageView"
             app:layout_constraintTop_toBottomOf="@+id/main_imageView" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp" android:id="@+id/main_radioGroup">
         <RadioButton
                 android:text="@string/decimal"
                 android:layout_width="match_parent"
