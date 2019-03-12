@@ -138,7 +138,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             android:cropToPadding="true"
             android:adjustViewBounds="true" android:background="@android:color/background_dark"
-            app:srcCompat="@android:color/holo_blue_light" android:layout_marginLeft="8dp"
+            app:srcCompat="@android:color/black" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/color_changer"/>
     <RadioGroup
