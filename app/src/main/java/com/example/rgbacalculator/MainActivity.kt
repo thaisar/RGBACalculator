@@ -3,232 +3,310 @@ package com.example.rgbacalculator
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
 
-    private lateinit var editText1: EditText
-    private lateinit var editText2: EditText
-    private lateinit var editText3: EditText
-    private lateinit var editText4: EditText
-    private lateinit var seekBar1: SeekBar
-    private lateinit var seekBar2: SeekBar
-    private lateinit var seekBar3: SeekBar
-    private lateinit var seekBar4: SeekBar
-    private lateinit var imageView: ImageView
-    private lateinit var radioButton1: RadioButton
-    private lateinit var radioButton2: RadioButton
+    private lateinit var mEditTextColorRed: EditText
+    private lateinit var mEditTextColorGreen: EditText
+    private lateinit var mEditTextColorBlue: EditText
+    private lateinit var mEditTextAlpha: EditText
+    private lateinit var mSeekBarColorRed: SeekBar
+    private lateinit var mSeekBarColorGreen: SeekBar
+    private lateinit var mSeekBarColorBlue: SeekBar
+    private lateinit var mSeekBarAlpha: SeekBar
+    private lateinit var mImageViewRGBA: ImageView
+    private lateinit var mRadioButtonDecimal: RadioButton
+    private lateinit var mRadioButtonHexadecimal: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        editText1 = findViewById(R.id.main_editText_1)
-        editText1.setOnEditorActionListener { view, actionId, event ->
-            if(actionId == EditorInfo.IME_ACTION_NEXT){
-                if(radioButton1.isChecked){
-                    if(editText4.text.toString().toInt() in 0 .. 255) {
-                        attEditTextDecimal(seekBar1)
+        mEditTextColorRed = findViewById(R.id.main_editText_colorRed)
+        mEditTextColorRed.setOnEditorActionListener { view, actionId, event ->
+            if(actionId == EditorInfo.IME_ACTION_DONE){
+                if(mRadioButtonDecimal.isChecked){
+                    if(mEditTextColorRed.text.toString().toInt() in 0 .. 255) {
+                        attEditTextDecimal(mSeekBarColorRed)
                     } else {
-
+                        mEditTextColorRed.setText("0")
+                        attEditTextDecimal(mSeekBarColorRed)
+                        Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show()
                     }
-                }else if(radioButton2.isChecked){
-                    attEditTextHexadecimal(seekBar1)
+                }else if(mRadioButtonHexadecimal.isChecked){
+                    if(hexFilter(mEditTextColorRed.text.toString())) {
+                        if(Integer.parseInt(mEditTextColorRed.text.toString(), 16) in 0 .. 255) {
+                            attEditTextHexadecimal(mSeekBarColorRed)
+                        } else {
+                            Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show()
+                            mEditTextColorRed.setText("0")
+                            attEditTextHexadecimal(mSeekBarColorRed)
+                        }
+                    }else {
+                        Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show()
+                        mEditTextColorRed.setText("0")
+                        attEditTextHexadecimal(mSeekBarColorRed)
+                    }
+
                 }
 
             }
-
             false
         }
-        editText2 = findViewById(R.id.main_editText_2)
-        editText2.setOnEditorActionListener { view, actionId, event ->
-
-            if(actionId == EditorInfo.IME_ACTION_NEXT){
-
-                if(radioButton1.isChecked){
-                    if(editText4.text.toString().toInt() in 0 .. 255) {
-                        attEditTextDecimal(seekBar2)
-                    } else {
-
-                    }
-                }else if(radioButton2.isChecked){
-                    attEditTextHexadecimal(seekBar2)
-                }
-
-            }
-
-            false
-        }
-        editText3 = findViewById(R.id.main_editText_3)
-        editText3.setOnEditorActionListener { view, actionId, event ->
-
-            if(actionId == EditorInfo.IME_ACTION_NEXT){
-
-                if(radioButton1.isChecked){
-                    if(editText4.text.toString().toInt() in 0 .. 255) {
-                        attEditTextDecimal(seekBar3)
-                    }else{
-
-                    }
-                }else if(radioButton2.isChecked){
-                    attEditTextHexadecimal(seekBar3)
-                }
-
-            }
-
-            false
-        }
-        editText4 = findViewById(R.id.main_editText_4)
-        editText4.setOnEditorActionListener { view, actionId, event ->
+        mEditTextColorGreen = findViewById(R.id.main_editText_colorGreen)
+        mEditTextColorGreen.setOnEditorActionListener { view, actionId, event ->
 
             if(actionId == EditorInfo.IME_ACTION_DONE){
 
-                if(radioButton1.isChecked){
-                    if(editText4.text.toString().toInt() in 0 .. 255){
-                        attEditTextDecimal(seekBar4)
-                    }else{
-
+                if(mRadioButtonDecimal.isChecked){
+                    if(mEditTextColorGreen.text.toString().toInt() in 0 .. 255) {
+                        attEditTextDecimal(mSeekBarColorGreen)
+                    } else {
+                        mEditTextColorGreen.setText("0")
+                        attEditTextDecimal(mSeekBarColorGreen)
+                        Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show()
+                    }
+                }else if(mRadioButtonHexadecimal.isChecked){
+                    if(hexFilter(mEditTextColorGreen.text.toString())) {
+                        if(Integer.parseInt(mEditTextColorGreen.text.toString(), 16) in 0 .. 255) {
+                            attEditTextHexadecimal(mSeekBarColorGreen)
+                        } else {
+                            Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show()
+                            mEditTextColorGreen.setText("0")
+                            attEditTextHexadecimal(mSeekBarColorGreen)
+                        }
+                    }else {
+                        Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show()
+                        mEditTextColorGreen.setText("0")
+                        attEditTextHexadecimal(mSeekBarColorGreen)
                     }
 
-                }else if(radioButton2.isChecked){
-                    attEditTextHexadecimal(seekBar4)
                 }
 
             }
 
             false
         }
-        seekBar1  = findViewById(R.id.main_seekBar_1)
-        seekBar1.setOnSeekBarChangeListener(this)
-        seekBar2  = findViewById(R.id.main_seekBar_2)
-        seekBar2.setOnSeekBarChangeListener(this)
-        seekBar3  = findViewById(R.id.main_seekBar_3)
-        seekBar3.setOnSeekBarChangeListener(this)
-        seekBar4  = findViewById(R.id.main_seekBar_4)
-        seekBar4.setOnSeekBarChangeListener(this)
+        mEditTextColorBlue = findViewById(R.id.main_editText_colorBlue)
+        mEditTextColorBlue.setOnEditorActionListener { view, actionId, event ->
 
-        imageView  = findViewById(R.id.main_imageView)
+            if(actionId == EditorInfo.IME_ACTION_DONE){
 
-        radioButton1 = findViewById(R.id.main_radioButton_1)
-        radioButton2 = findViewById(R.id.main_radioButton_2)
+                if(mRadioButtonDecimal.isChecked){
+                    if(mEditTextColorBlue.text.toString().toInt() in 0 .. 255) {
+                        attEditTextDecimal(mSeekBarColorBlue)
+                    } else {
+                        mEditTextColorBlue.setText("0")
+                        attEditTextDecimal(mSeekBarColorBlue)
+                        Toast.makeText(this, "Número incorreto", Toast.LENGTH_SHORT).show()
+                    }
+                }else if(mRadioButtonHexadecimal.isChecked){
+                    if(hexFilter(mEditTextColorBlue.text.toString())) {
+                        if(Integer.parseInt(mEditTextColorBlue.text.toString(), 16) in 0 .. 255) {
+                            attEditTextHexadecimal(mSeekBarColorBlue)
+                        } else {
+                            Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show()
+                            mEditTextColorBlue.setText("0")
+                            attEditTextHexadecimal(mSeekBarColorBlue)
+                        }
+                    }else {
+                        Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show()
+                        mEditTextColorBlue.setText("0")
+                        attEditTextHexadecimal(mSeekBarColorBlue)
+                    }
+
+                }
+
+            }
+
+            false
+        }
+        mEditTextAlpha = findViewById(R.id.main_editText_alpha)
+        mEditTextAlpha.setOnEditorActionListener { view, actionId, event ->
+
+            if(actionId == EditorInfo.IME_ACTION_DONE){
+
+                if(mRadioButtonDecimal.isChecked){
+                    if(mEditTextAlpha.text.toString().toInt() in 0 .. 255) {
+                        attEditTextDecimal(mSeekBarAlpha)
+                    } else {
+                        mEditTextAlpha.setText("0")
+                        attEditTextDecimal(mSeekBarAlpha)
+                        Toast.makeText(this, "Número incorreto", Toast.LENGTH_SHORT).show()
+                    }
+                }else if(mRadioButtonHexadecimal.isChecked){
+                    if(hexFilter(mEditTextAlpha.text.toString())) {
+                        if(Integer.parseInt(mEditTextAlpha.text.toString(), 16) in 0 .. 255) {
+                            attEditTextHexadecimal(mSeekBarAlpha)
+                        } else {
+                            Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show()
+                            mEditTextAlpha.setText("0")
+                            attEditTextHexadecimal(mSeekBarAlpha)
+                        }
+                    }else {
+                        Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show()
+                        mEditTextAlpha.setText("0")
+                        attEditTextHexadecimal(mSeekBarAlpha)
+                    }
+
+                }
+
+            }
+
+            false
+        }
+        mSeekBarColorRed  = findViewById(R.id.main_seekBar_colorRed)
+        mSeekBarColorRed.setOnSeekBarChangeListener(this)
+        mSeekBarColorGreen  = findViewById(R.id.main_seekBar_colorGreen)
+        mSeekBarColorGreen.setOnSeekBarChangeListener(this)
+        mSeekBarColorBlue  = findViewById(R.id.main_seekBar_colorBlue)
+        mSeekBarColorBlue.setOnSeekBarChangeListener(this)
+        mSeekBarAlpha  = findViewById(R.id.main_seekBar_alpha)
+        mSeekBarAlpha.setOnSeekBarChangeListener(this)
+
+        mImageViewRGBA  = findViewById(R.id.main_imageView)
+
+        mRadioButtonDecimal = findViewById(R.id.main_radioButton_decimal)
+        mRadioButtonHexadecimal = findViewById(R.id.main_radioButton_hexadecimal)
 
         main_radioGroup.setOnCheckedChangeListener { group, checkedId ->
 
-            if(radioButton1.isChecked){
-                val red = when (editText1.text.toString().length == 1) {
-                    true -> "0" + editText1.text.toString()
-                    false -> editText1.text.toString()
+            if(mRadioButtonDecimal.isChecked){
+                val red = when (mEditTextColorRed.text.toString().length == 1) {
+                    true -> "0" + mEditTextColorRed.text.toString()
+                    false -> mEditTextColorRed.text.toString()
                 }
-                val green = when (editText2.text.toString().length == 1) {
-                    true -> "0" + editText2.text.toString()
-                    false -> editText2.text.toString()
+                val green = when (mEditTextColorGreen.text.toString().length == 1) {
+                    true -> "0" + mEditTextColorGreen.text.toString()
+                    false -> mEditTextColorGreen.text.toString()
                 }
-                val blue = when (editText3.text.toString().length == 1) {
-                    true -> "0" + editText3.text.toString()
-                    false -> editText3.text.toString()
+                val blue = when (mEditTextColorBlue.text.toString().length == 1) {
+                    true -> "0" + mEditTextColorBlue.text.toString()
+                    false -> mEditTextColorBlue.text.toString()
                 }
-                val alpha = when (editText4.text.toString().length == 1) {
-                    true -> "0" + editText4.text.toString()
-                    false -> editText4.text.toString()
+                val alpha = when (mEditTextAlpha.text.toString().length == 1) {
+                    true -> "0" + mEditTextAlpha.text.toString()
+                    false -> mEditTextAlpha.text.toString()
                 }
-                editText1.setText(Integer.parseInt(red, 16).toString())
-                editText2.setText(Integer.parseInt(green, 16).toString())
-                editText3.setText(Integer.parseInt(blue, 16).toString())
-                editText4.setText(Integer.parseInt(alpha, 16).toString())
+                mEditTextColorRed.setText(Integer.parseInt(red, 16).toString())
+                mEditTextColorGreen.setText(Integer.parseInt(green, 16).toString())
+                mEditTextColorBlue.setText(Integer.parseInt(blue, 16).toString())
+                mEditTextAlpha.setText(Integer.parseInt(alpha, 16).toString())
 
-                editText1.hint = "255"
-                editText2.hint = "255"
-                editText3.hint = "255"
-                editText4.hint = "255"
+                mEditTextColorRed.hint = "255"
+                mEditTextColorGreen.hint = "255"
+                mEditTextColorBlue.hint = "255"
+                mEditTextAlpha.hint = "255"
+
+                mEditTextColorRed.inputType = InputType.TYPE_CLASS_NUMBER
+                mEditTextColorGreen.inputType = InputType.TYPE_CLASS_NUMBER
+                mEditTextColorBlue.inputType = InputType.TYPE_CLASS_NUMBER
+                mEditTextAlpha.inputType = InputType.TYPE_CLASS_NUMBER
             }
-            if(radioButton2.isChecked){
-                editText1.setText(Integer.toHexString(editText1.text.toString().toInt()))
-                editText2.setText(Integer.toHexString(editText2.text.toString().toInt()))
-                editText3.setText(Integer.toHexString(editText3.text.toString().toInt()))
-                editText4.setText(Integer.toHexString(editText4.text.toString().toInt()))
+            if(mRadioButtonHexadecimal.isChecked){
+                mEditTextColorRed.setText(Integer.toHexString(mEditTextColorRed.text.toString().toInt()))
+                mEditTextColorGreen.setText(Integer.toHexString(mEditTextColorGreen.text.toString().toInt()))
+                mEditTextColorBlue.setText(Integer.toHexString(mEditTextColorBlue.text.toString().toInt()))
+                mEditTextAlpha.setText(Integer.toHexString(mEditTextAlpha.text.toString().toInt()))
 
-                editText1.hint = "ff"
-                editText2.hint = "ff"
-                editText3.hint = "ff"
-                editText4.hint = "ff"
+                mEditTextColorRed.hint = "ff"
+                mEditTextColorGreen.hint = "ff"
+                mEditTextColorBlue.hint = "ff"
+                mEditTextAlpha.hint = "ff"
+
+                mEditTextColorRed.inputType = InputType.TYPE_CLASS_TEXT
+                mEditTextColorGreen.inputType = InputType.TYPE_CLASS_TEXT
+                mEditTextColorBlue.inputType = InputType.TYPE_CLASS_TEXT
+                mEditTextAlpha.inputType = InputType.TYPE_CLASS_TEXT
+
+
             }
-
         }
-
     }
 
     private fun attEditTextDecimal(seekBar: SeekBar?){
 
-        val red = editText1.text.toString().toInt()
-        val green  = editText2.text.toString().toInt()
-        val blue = editText3.text.toString().toInt()
-        val alpha = editText4.text.toString().toInt()
+        val red = mEditTextColorRed.text.toString().toDouble().toInt()
+        val green  = mEditTextColorGreen.text.toString().toDouble().toInt()
+        val blue = mEditTextColorBlue.text.toString().toDouble().toInt()
+        val alpha = mEditTextAlpha.text.toString().toDouble().toInt()
 
-        imageView.setColorFilter(Color.rgb(red, green, blue))
-        imageView.alpha = alpha.toFloat()/255F
+        mImageViewRGBA.setColorFilter(Color.rgb(red, green, blue))
+        mImageViewRGBA.alpha = alpha.toFloat()/255F
         when {
-            seekBar!!.id == seekBar1.id -> seekBar1.progress = red
-            seekBar.id == seekBar2.id -> seekBar2.progress = green
-            seekBar.id == seekBar3.id -> seekBar3.progress = blue
-            seekBar.id == seekBar4.id -> seekBar4.progress = alpha
+            seekBar!!.id == mSeekBarColorRed.id -> mSeekBarColorRed.progress = red
+            seekBar.id == mSeekBarColorGreen.id -> mSeekBarColorGreen.progress = green
+            seekBar.id == mSeekBarColorBlue.id -> mSeekBarColorBlue.progress = blue
+            seekBar.id == mSeekBarAlpha.id -> mSeekBarAlpha.progress = alpha
         }
-
     }
 
 
     private fun attEditTextHexadecimal(seekBar: SeekBar?){
-        val red = when (editText1.text.toString().length == 1) {
-            true -> "0" + editText1.text.toString()
-            false -> editText1.text.toString()
+        val red = when (mEditTextColorRed.text.toString().length == 1) {
+            true -> "0" + mEditTextColorRed.text.toString()
+            false -> mEditTextColorRed.text.toString()
         }
-        val green = when (editText2.text.toString().length == 1) {
-            true -> "0" + editText2.text.toString()
-            false -> editText2.text.toString()
+        val green = when (mEditTextColorGreen.text.toString().length == 1) {
+            true -> "0" + mEditTextColorGreen.text.toString()
+            false -> mEditTextColorGreen.text.toString()
         }
-        val blue = when (editText3.text.toString().length == 1) {
-            true -> "0" + editText3.text.toString()
-            false -> editText3.text.toString()
+        val blue = when (mEditTextColorBlue.text.toString().length == 1) {
+            true -> "0" + mEditTextColorBlue.text.toString()
+            false -> mEditTextColorBlue.text.toString()
         }
-        val alpha = when (editText4.text.toString().length == 1) {
-            true -> "0" + editText4.text.toString()
-            false -> editText4.text.toString()
+        val alpha = when (mEditTextAlpha.text.toString().length == 1) {
+            true -> "0" + mEditTextAlpha.text.toString()
+            false -> mEditTextAlpha.text.toString()
         }
 
-        imageView.setColorFilter(Color.parseColor("#$alpha$red$green$blue"))
-        val test = Integer.parseInt(red, 16)
-        Toast.makeText(this, "$test", Toast.LENGTH_SHORT).show()
+        mImageViewRGBA.setColorFilter(Color.parseColor("#$alpha$red$green$blue"))
 
         when {
-            seekBar!!.id == seekBar1.id -> seekBar1.progress = Integer.parseInt(red, 16)
-            seekBar.id == seekBar2.id -> seekBar2.progress = Integer.parseInt(green, 16)
-            seekBar.id == seekBar3.id -> seekBar3.progress = Integer.parseInt(blue, 16)
-            seekBar.id == seekBar4.id -> seekBar4.progress = Integer.parseInt(alpha, 16)
+            seekBar!!.id == mSeekBarColorRed.id -> mSeekBarColorRed.progress = Integer.parseInt(red, 16)
+            seekBar.id == mSeekBarColorGreen.id -> mSeekBarColorGreen.progress = Integer.parseInt(green, 16)
+            seekBar.id == mSeekBarColorBlue.id -> mSeekBarColorBlue.progress = Integer.parseInt(blue, 16)
+            seekBar.id == mSeekBarAlpha.id -> mSeekBarAlpha.progress = Integer.parseInt(alpha, 16)
         }
+    }
+
+    fun hexFilter(string: String): Boolean {
+
+        for (c: Char in string){
+            when (c) {
+                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F' -> print("otherwise")
+                else -> return false
+            }
+        }
+        return true
+
     }
 
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
 
-        val red = seekBar1.progress
-        val green = seekBar2.progress
-        val blue = seekBar3.progress
-        val alpha = seekBar4.progress
+        val red = mSeekBarColorRed.progress
+        val green = mSeekBarColorGreen.progress
+        val blue = mSeekBarColorBlue.progress
+        val alpha = mSeekBarAlpha.progress
 
-        imageView.setColorFilter(Color.rgb(red, green, blue))
-        imageView.alpha = alpha.toFloat()/255F
+        mImageViewRGBA.setColorFilter(Color.rgb(red, green, blue))
+        mImageViewRGBA.alpha = alpha.toFloat()/255F
 
-        if(radioButton1.isChecked) when {
-            seekBar!!.id == seekBar1.id -> editText1.setText("$red")
-            seekBar.id == seekBar2.id -> editText2.setText("$green")
-            seekBar.id == seekBar3.id -> editText3.setText("$blue")
-            seekBar.id == seekBar4.id -> editText4.setText(alpha.toString())
-        } else if(radioButton2.isChecked) when {
-            seekBar!!.id == seekBar1.id -> editText1.setText(Integer.toHexString(red))
-            seekBar.id == seekBar2.id -> editText2.setText(Integer.toHexString(green))
-            seekBar.id == seekBar3.id -> editText3.setText(Integer.toHexString(blue))
-            seekBar.id == seekBar4.id -> editText4.setText(Integer.toHexString(alpha))
+        if(mRadioButtonDecimal.isChecked) when {
+            seekBar!!.id == mSeekBarColorRed.id -> mEditTextColorRed.setText("$red")
+            seekBar.id == mSeekBarColorGreen.id -> mEditTextColorGreen.setText("$green")
+            seekBar.id == mSeekBarColorBlue.id -> mEditTextColorBlue.setText("$blue")
+            seekBar.id == mSeekBarAlpha.id -> mEditTextAlpha.setText(alpha.toString())
+        } else if(mRadioButtonHexadecimal.isChecked) when {
+            seekBar!!.id == mSeekBarColorRed.id -> mEditTextColorRed.setText(Integer.toHexString(red))
+            seekBar.id == mSeekBarColorGreen.id -> mEditTextColorGreen.setText(Integer.toHexString(green))
+            seekBar.id == mSeekBarColorBlue.id -> mEditTextColorBlue.setText(Integer.toHexString(blue))
+            seekBar.id == mSeekBarAlpha.id -> mEditTextAlpha.setText(Integer.toHexString(alpha))
         }
 
     }

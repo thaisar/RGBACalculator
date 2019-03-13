@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/main_textView_"
             android:gravity="center" android:textSize="30sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_1"
+            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_colorRed"
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp"/>
     <TextView
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/main_textView_5" android:textSize="30sp"
             android:gravity="center"
-            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_2"
+            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_colorGreen"
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp"/>
     <TextView
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/main_textView_6" android:textSize="30sp"
             android:gravity="center"
-            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_3" android:layout_marginStart="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_colorBlue" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"/>
     <TextView
             android:text="@string/a"
@@ -38,78 +38,86 @@
             android:layout_height="wrap_content"
             android:id="@+id/main_textView_7" android:textSize="30sp"
             android:gravity="center"
-            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_4" android:layout_marginStart="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/main_editText_alpha" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"/>
     <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:id="@+id/main_editText_1"
+            android:id="@+id/main_editText_colorRed"
             android:hint="@string/_255" android:gravity="center"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/main_editText_2" android:layout_marginTop="8dp"
-            android:textSize="30sp" android:text="@string/_0" android:inputType="textNoSuggestions"
-            app:layout_constraintTop_toBottomOf="@+id/main_imageView"/>
+            app:layout_constraintBottom_toTopOf="@+id/main_editText_colorGreen" android:layout_marginTop="8dp"
+            android:textSize="30sp" android:text="@string/_0"
+            android:inputType="numberDecimal"
+            app:layout_constraintTop_toBottomOf="@+id/main_imageView"
+            android:imeOptions="actionDone"/>
     <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:id="@+id/main_editText_2"
+            android:id="@+id/main_editText_colorGreen"
             android:hint="@string/_255" android:gravity="center"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/main_editText_1"
-            app:layout_constraintBottom_toTopOf="@+id/main_editText_3" android:textSize="30sp" android:text="@string/_0"
-            android:inputType="textNoSuggestions"/>
+            app:layout_constraintTop_toBottomOf="@+id/main_editText_colorRed"
+            app:layout_constraintBottom_toTopOf="@+id/main_editText_colorBlue" android:textSize="30sp" android:text="@string/_0"
+            android:inputType="numberDecimal"
+            android:imeOptions="actionDone"/>
     <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:id="@+id/main_editText_3"
-            android:inputType="textNoSuggestions" android:hint="@string/_255" android:gravity="center"
+            android:id="@+id/main_editText_colorBlue"
+            android:inputType="numberDecimal"
+            android:hint="@string/_255" android:gravity="center"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/main_editText_2"
-            app:layout_constraintBottom_toTopOf="@+id/main_editText_4" android:textSize="30sp"
-            android:text="@string/_0"/>
+            app:layout_constraintTop_toBottomOf="@+id/main_editText_colorGreen"
+            app:layout_constraintBottom_toTopOf="@+id/main_editText_alpha" android:textSize="30sp"
+            android:text="@string/_0"
+            android:imeOptions="actionDone"/>
     <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:id="@+id/main_editText_4"
-            android:inputType="textNoSuggestions"
+            android:id="@+id/main_editText_alpha"
+            android:inputType="numberDecimal"
             android:hint="@string/_255" android:gravity="center"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/main_editText_3"
-            android:textSize="30sp" android:text="@string/_255"/>
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/main_editText_colorBlue"
+            android:textSize="30sp" android:text="@string/_255"
+            android:imeOptions="actionDone"/>
     <SeekBar
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/main_seekBar_1"
+            android:id="@+id/main_seekBar_colorRed"
             android:max="255"
-            app:layout_constraintEnd_toStartOf="@+id/main_editText_1"
-            app:layout_constraintTop_toTopOf="@+id/main_editText_1"
-            app:layout_constraintBottom_toBottomOf="@+id/main_editText_1" app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintEnd_toStartOf="@+id/main_editText_colorRed"
+            app:layout_constraintTop_toTopOf="@+id/main_editText_colorRed"
+            app:layout_constraintBottom_toBottomOf="@+id/main_editText_colorRed"
+            app:layout_constraintVertical_bias="1.0"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toEndOf="@+id/main_textView_" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="1.0"/>
     <SeekBar
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/main_seekBar_2"
+            android:id="@+id/main_seekBar_colorGreen"
             android:max="255"
-            app:layout_constraintEnd_toStartOf="@+id/main_editText_2"
-            app:layout_constraintTop_toTopOf="@+id/main_editText_2"
-            app:layout_constraintBottom_toBottomOf="@+id/main_editText_2" app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintEnd_toStartOf="@+id/main_editText_colorGreen"
+            app:layout_constraintTop_toTopOf="@+id/main_editText_colorGreen"
+            app:layout_constraintBottom_toBottomOf="@+id/main_editText_colorGreen"
+            app:layout_constraintVertical_bias="1.0"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toEndOf="@+id/main_textView_5" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="1.0"/>
     <SeekBar
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/main_seekBar_3"
+            android:id="@+id/main_seekBar_colorBlue"
             android:max="255"
-            app:layout_constraintEnd_toStartOf="@+id/main_editText_3"
-            app:layout_constraintTop_toTopOf="@+id/main_editText_3"
-            app:layout_constraintBottom_toBottomOf="@+id/main_editText_3"
+            app:layout_constraintEnd_toStartOf="@+id/main_editText_colorBlue"
+            app:layout_constraintTop_toTopOf="@+id/main_editText_colorBlue"
+            app:layout_constraintBottom_toBottomOf="@+id/main_editText_colorBlue"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toEndOf="@+id/main_textView_6" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="1.0"
@@ -117,11 +125,11 @@
     <SeekBar
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/main_seekBar_4"
+            android:id="@+id/main_seekBar_alpha"
             android:max="255"
-            app:layout_constraintEnd_toStartOf="@+id/main_editText_4"
-            app:layout_constraintTop_toTopOf="@+id/main_editText_4"
-            app:layout_constraintBottom_toBottomOf="@+id/main_editText_4"
+            app:layout_constraintEnd_toStartOf="@+id/main_editText_alpha"
+            app:layout_constraintTop_toTopOf="@+id/main_editText_alpha"
+            app:layout_constraintBottom_toBottomOf="@+id/main_editText_alpha"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toEndOf="@+id/main_textView_7" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="1.0"
@@ -147,12 +155,14 @@
         <RadioButton
                 android:text="@string/decimal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/main_radioButton_1" android:layout_weight="1"
+                android:layout_height="match_parent" android:id="@+id/main_radioButton_decimal"
+                android:layout_weight="1"
                 android:checked="true" android:textSize="18sp"/>
         <RadioButton
                 android:text="@string/hexadecial"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/main_radioButton_2" android:layout_weight="1"
+                android:layout_height="match_parent" android:id="@+id/main_radioButton_hexadecimal"
+                android:layout_weight="1"
                 android:textSize="18sp"/>
     </RadioGroup>
 </android.support.constraint.ConstraintLayout>
