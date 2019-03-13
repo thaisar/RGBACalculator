@@ -58,7 +58,7 @@
             android:imeOptions="actionDone"/>
     <SeekBar
             android:layout_width="0dp"
-            android:id="@+id/main_seekBar_1"
+            android:id="@+id/main_seekBar_colorRed"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/main_editText_colorRed" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
